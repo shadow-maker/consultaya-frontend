@@ -1,0 +1,24 @@
+-- Fixture del mock: dataset «RapiMenú» (mismos datos que el prototipo).
+CREATE TABLE restaurantes (id INTEGER PRIMARY KEY, nombre TEXT, tipo_cocina TEXT, distrito TEXT);
+INSERT INTO restaurantes VALUES (1, 'Pollería El Dorado', 'Pollería', 'Lince');
+INSERT INTO restaurantes VALUES (2, 'Chifa Dragón Rojo', 'Chifa', 'Jesús María');
+INSERT INTO restaurantes VALUES (3, 'Cevichería La Chalaca', 'Marina', 'Miraflores');
+INSERT INTO restaurantes VALUES (4, 'Sanguchería Don Lucho', 'Sánguches', 'Barranco');
+INSERT INTO restaurantes VALUES (5, 'Anticuchería La Tía Pocha', 'Criolla', 'Surco');
+CREATE TABLE pedidos (id INTEGER PRIMARY KEY, restaurante_id INTEGER, distrito TEXT, monto REAL, estado TEXT, fecha TEXT);
+INSERT INTO pedidos VALUES (1, 1, 'Lince', 45.9, 'entregado', '2026-09-10');
+INSERT INTO pedidos VALUES (2, 3, 'Miraflores', 78, 'entregado', '2026-09-10');
+INSERT INTO pedidos VALUES (3, 2, 'San Isidro', 52.5, 'entregado', '2026-09-10');
+INSERT INTO pedidos VALUES (4, 1, 'Jesús María', 38, 'cancelado', '2026-09-11');
+INSERT INTO pedidos VALUES (5, 4, 'Barranco', 29.9, 'entregado', '2026-09-11');
+INSERT INTO pedidos VALUES (6, 5, 'Surco', 64, 'entregado', '2026-09-11');
+INSERT INTO pedidos VALUES (7, 3, 'Miraflores', 92.4, 'entregado', '2026-09-12');
+INSERT INTO pedidos VALUES (8, 2, 'Lince', 41, 'en camino', '2026-09-12');
+INSERT INTO pedidos VALUES (9, 1, 'Lince', 55.8, 'entregado', '2026-09-12');
+INSERT INTO pedidos VALUES (10, 4, 'Miraflores', 33.5, 'entregado', '2026-09-13');
+INSERT INTO pedidos VALUES (11, 5, 'Surco', 47, 'cancelado', '2026-09-13');
+INSERT INTO pedidos VALUES (12, 3, 'San Isidro', 85, 'entregado', '2026-09-13');
+INSERT INTO pedidos VALUES (13, 2, 'Lince', 60, 'entregado', '2026-09-14');
+INSERT INTO pedidos VALUES (14, 1, 'Surco', 39.9, 'entregado', '2026-09-14');
+INSERT INTO pedidos VALUES (15, 4, 'Barranco', 27, 'en camino', '2026-09-14');
+INSERT INTO pedidos VALUES (16, 5, 'Miraflores', 71.5, 'entregado', '2026-09-14');
