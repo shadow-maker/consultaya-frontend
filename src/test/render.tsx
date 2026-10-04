@@ -14,3 +14,15 @@ export function renderApp(ruta: string | { pathname: string; state?: unknown } =
     </MemoryRouter>,
   );
 }
+
+/** Inicia sesión contra los mocks y deja el token guardado (como si el usuario ya hubiera entrado). */
+export async function conSesion(email: 'demo@consultaya.pe' | 'nuevo@consultaya.pe' = 'demo@consultaya.pe') {
+  const password = email.startsWith('demo') ? 'demo1234' : 'nuevo1234';
+  const resp = await fetch('/api/usuarios/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
+  const { token } = (await resp.json()) as { token: string };
+  window.localStorage.setItem('consultaya.token', token);
+}

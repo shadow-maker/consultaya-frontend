@@ -15,7 +15,7 @@ describe('Registro (HU1)', () => {
   it('HU1-E1: registro correcto → toast de bienvenida y ruta de aprendizaje', async () => {
     renderApp('/registro');
     await completar('Luz Pérez', 'luz@ejemplo.pe', 'clave12345');
-    expect(await screen.findByRole('heading', { name: 'Ruta' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: /De cero a analista/ })).toBeInTheDocument();
     expect(screen.getByTestId('toast')).toHaveTextContent('¡Cuenta creada! Te damos la bienvenida, Luz.');
   });
 

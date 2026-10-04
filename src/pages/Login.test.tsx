@@ -29,7 +29,7 @@ describe('Login (HU1)', () => {
   it('con credenciales correctas entra al panel y avisa con un toast', async () => {
     renderApp('/login');
     await completar('demo@consultaya.pe', 'demo1234');
-    expect(await screen.findByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Tu panel de aprendizaje' })).toBeInTheDocument();
     expect(screen.getByTestId('toast')).toHaveTextContent('¡Hola de nuevo, Ana!');
     expect(localStorage.getItem('consultaya.token')).toBeTruthy();
   });
@@ -37,7 +37,7 @@ describe('Login (HU1)', () => {
   it('tras iniciar sesión vuelve a la ruta que se quería abrir', async () => {
     renderApp({ pathname: '/login', state: { desde: '/progreso' } });
     await completar('demo@consultaya.pe', 'demo1234');
-    expect(await screen.findByRole('heading', { name: 'Progreso' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Mi progreso' })).toBeInTheDocument();
   });
 
   it('muestra las cuentas de prueba solo en desarrollo', () => {
@@ -60,11 +60,11 @@ describe('RequireAuth', () => {
     await u.type(screen.getByTestId('login-email'), 'demo@consultaya.pe');
     await u.type(screen.getByTestId('login-password'), 'demo1234');
     await u.click(screen.getByTestId('login-submit'));
-    await screen.findByRole('heading', { name: 'Dashboard' });
+    await screen.findByRole('heading', { name: 'Tu panel de aprendizaje' });
     primero.unmount();
 
     renderApp('/progreso');
-    expect(await screen.findByRole('heading', { name: 'Progreso' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Mi progreso' })).toBeInTheDocument();
   });
 
   it('un token inválido se descarta y se pide iniciar sesión', async () => {
@@ -80,9 +80,9 @@ describe('RequireAuth', () => {
     await u.type(screen.getByTestId('login-email'), 'demo@consultaya.pe');
     await u.type(screen.getByTestId('login-password'), 'demo1234');
     await u.click(screen.getByTestId('login-submit'));
-    await screen.findByRole('heading', { name: 'Dashboard' });
+    await screen.findByRole('heading', { name: 'Tu panel de aprendizaje' });
     primero.unmount();
     renderApp('/login');
-    expect(await screen.findByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Tu panel de aprendizaje' })).toBeInTheDocument();
   });
 });
