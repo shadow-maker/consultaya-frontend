@@ -1,0 +1,74 @@
+/* Dashboard, ruta, lección */
+/* Dashboard */
+.dash{display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); gap:18px}
+.span-8{grid-column:span 8} .span-4{grid-column:span 4} .span-6{grid-column:span 6} .span-12{grid-column:span 12}
+@media (max-width:900px){ .dash > *{grid-column:span 12} }
+.continue{background:linear-gradient(140deg, #FFFFFF 40%, var(--brand-softer)); display:flex; flex-direction:column; justify-content:center}
+.continue h2{font-size:24px} .continue .bar{max-width:460px; margin-top:6px}
+.overall-in{display:flex; gap:20px; align-items:center; margin-top:8px}
+.ring{position:relative; width:112px; height:112px; flex:none} .ring svg{transform:rotate(-90deg); display:block}
+.ring b{position:absolute; inset:0; display:grid; place-items:center; font-size:24px; font-weight:800}
+.kv{list-style:none; margin:0; padding:0; display:grid; gap:8px; flex:1} .kv li{display:flex; justify-content:space-between; gap:10px; font-size:14px} .kv span{color:var(--muted)}
+.mod-line{margin-top:14px} .mod-line-top{display:flex; justify-content:space-between; margin-bottom:6px; font-size:14px}
+.badges{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px}
+.badge{display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px; padding:12px 8px; border-radius:12px; background:var(--surface-2); font-size:12.5px; font-weight:650}
+.badge small{font-weight:500; color:var(--muted); font-size:11.5px; line-height:1.3}
+.badge .b-ic{width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:#E4E7EC; color:#98A2B3; margin-bottom:2px}
+.badge.on{background:var(--accent-soft)} .badge.on .b-ic{background:var(--accent); color:#fff}
+.badge:not(.on) > span{color:var(--muted)}
+.cert-row{display:flex; gap:12px; align-items:center; padding:11px 0; border-top:1px solid var(--line)} .cert-row:first-of-type{border-top:0}
+.cert-ic{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:var(--surface-2); color:var(--muted)}
+.cert-ic.ok{background:var(--accent-soft); color:var(--warn)}
+@media (max-width:560px){ .badges{grid-template-columns:repeat(2,1fr)} .overall-in{flex-direction:column; align-items:stretch} .ring{margin:0 auto} }
+
+/* Ruta / explorador */
+.explorer{display:grid; grid-template-columns:290px minmax(0,1fr); gap:24px; align-items:start}
+.sidebar{position:sticky; top:82px; max-height:calc(100vh - 100px); overflow:auto; padding:14px}
+.search{position:relative} .search input{padding-left:36px; height:40px} .search .i{position:absolute; left:12px; top:12px; color:var(--muted)}
+.side-mod{margin-top:16px} .side-mod h4{font-size:11.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin:0 8px 6px; display:flex; justify-content:space-between}
+.side-item{display:flex; gap:10px; align-items:center; padding:8px; border-radius:9px; color:var(--ink); font-size:14px; line-height:1.3}
+.side-item:hover{background:var(--surface-2); text-decoration:none} .side-item.active{background:var(--brand-soft); color:var(--brand-700); font-weight:650}
+.side-item.all{margin-top:10px; font-weight:600} .side-item.all .i{color:var(--muted); width:18px; height:18px}
+.module{margin-bottom:18px; padding:0; overflow:hidden}
+.module-head{display:flex; gap:16px; align-items:center; padding:20px 22px; border-bottom:1px solid var(--line); flex-wrap:wrap}
+.module-head h2{margin:0 0 2px} .module-head p{margin:0}
+.mod-n{width:42px; height:42px; border-radius:12px; background:var(--brand-soft); color:var(--brand-700); display:grid; place-items:center; font-weight:800; font-size:18px; flex:none}
+.mod-pct{width:180px; display:grid; gap:6px; text-align:right} .mod-pct b{font-size:20px; line-height:1}
+.lesson-list{list-style:none; margin:0; padding:0}
+.lesson-row{display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; gap:14px; align-items:center; padding:14px 22px; border-bottom:1px solid var(--line)}
+.lesson-row:last-child{border-bottom:0}
+.lr-title{font-weight:650; color:var(--ink)}
+.lr-meta{display:flex; flex-direction:column; align-items:flex-end; gap:4px}
+@media (max-width:900px){ .explorer{grid-template-columns:1fr} .sidebar{position:static; max-height:none} }
+@media (max-width:700px){ .lesson-row{grid-template-columns:auto minmax(0,1fr)} .lr-meta{grid-column:2; flex-direction:row; align-items:center; justify-content:flex-start; flex-wrap:wrap; gap:8px} .lesson-row > .btn{grid-column:2; justify-self:start} .mod-pct{width:100%; text-align:left} }
+.lesson-sum{padding:28px}
+.meta-row{display:flex; gap:16px; flex-wrap:wrap; align-items:center; font-size:14px; color:var(--muted); margin-top:10px} .meta-row span{display:inline-flex; gap:6px; align-items:center}
+.ls-progress{margin:22px 0; display:grid; gap:7px; max-width:520px}
+.ls-cols{display:grid; grid-template-columns:1fr 1fr; gap:28px; border-top:1px solid var(--line); padding-top:22px}
+.toc{margin:0 0 20px; padding-left:20px; display:grid; gap:6px; font-size:14.5px}
+.ex-list{list-style:none; margin:0; padding:0; display:grid; gap:4px}
+.ex-list li{display:flex; justify-content:space-between; align-items:center; gap:10px}
+.ex-list a{display:flex; gap:10px; align-items:center; padding:6px 0; color:var(--ink); font-size:14.5px; font-weight:550}
+@media (max-width:700px){ .ls-cols{grid-template-columns:1fr} .lesson-sum{padding:20px} }
+
+/* Lección */
+.lesson-layout{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:22px; align-items:start}
+.lesson-body{padding:30px 34px}
+.lesson-body h1{font-size:30px; letter-spacing:-.02em}
+.lsec{margin-top:30px} .lsec h2{display:flex; gap:10px; align-items:center; font-size:20px}
+.sec-n{width:26px; height:26px; border-radius:8px; background:var(--brand-soft); color:var(--brand-700); display:grid; place-items:center; font-size:13px; font-weight:800; flex:none}
+.lsec p, .lsec li{font-size:15.5px; color:var(--ink-2)}
+.example{border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:16px 0}
+.example .ex-head{display:flex; gap:8px; align-items:center; padding:9px 14px; font-size:13px; font-weight:650; background:var(--surface-2); border-bottom:1px solid var(--line)}
+.example .code{border-radius:0}
+.example .ex-res{padding:12px 12px 4px} .example .result-wrap{max-height:250px}
+.ex-note{padding:6px 14px 12px; margin:0; font-size:14px !important; color:var(--muted) !important}
+.tip{display:flex; gap:10px; background:var(--accent-soft); border-radius:10px; padding:12px 14px; margin:14px 0; font-size:14.5px; color:#563800} .tip .i{color:var(--warn); margin-top:3px}
+table.ops{border-collapse:collapse; margin:10px 0 4px; font-size:14px} table.ops th, table.ops td{border-bottom:1px solid var(--line); padding:7px 18px 7px 0; text-align:left} table.ops th{font-size:12.5px; color:var(--muted)}
+.lesson-cta{margin-top:34px; padding:20px 22px; border-radius:12px; background:var(--brand-softer); border:1px solid #CDE9E1; display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+.lesson-cta h3{margin:0 0 2px} .lesson-cta p{margin:0}
+.lesson-aside{position:sticky; top:82px; display:grid; gap:16px}
+.lesson-aside h3{display:flex; gap:8px; align-items:center}
+.mini-tables{list-style:none; margin:10px 0 0; padding:0; display:grid; gap:10px} .mini-tables li{display:grid; gap:2px}
+.lesson-nav{display:flex; justify-content:space-between; gap:8px}
+@media (max-width:980px){ .lesson-layout{grid-template-columns:1fr} .lesson-aside{position:static} .lesson-body{padding:22px} }
