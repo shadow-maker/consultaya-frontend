@@ -13,3 +13,8 @@
 #root{min-height:100vh; display:flex; flex-direction:column}
 #root > .app-main{flex:1}
 @media (prefers-reduced-motion:reduce){ .toast{animation:none} .bar > i{transition:none} }
+
+/* Ejercicio: tres bloques para poder reordenarlos. En pantallas angostas el editor va justo después del enunciado. */
+.ex-layout{grid-template-areas:"enun editor" "esq editor"; grid-template-rows:auto 1fr}
+.ex-enunciado{grid-area:enun} .ex-esquema{grid-area:esq} .ex-editor{grid-area:editor}
+@media (max-width:1000px){ .ex-layout{grid-template-areas:"enun" "editor" "esq"; grid-template-rows:none} }

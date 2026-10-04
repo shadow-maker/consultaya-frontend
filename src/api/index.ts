@@ -3,3 +3,4 @@ export { ApiError, api, registrarManejadorSesionExpirada } from './cliente';
 export * from './usuarios';
 export * from './lecciones';
 export * from './progreso';
+export * from './hooks';
