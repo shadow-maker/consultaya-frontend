@@ -8,6 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:mocks": "cross-env VITE_API_MOCKS=true vite",
+    "dev:docker": "cross-env VITE_BACKEND=docker vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
@@ -32,6 +34,7 @@
     "@types/react-dom": "^19.3.0",
     "@types/sql.js": "^1.4.11",
     "@vitejs/plugin-react": "^6.1.1",
+    "cross-env": "^10.1.0",
     "eslint": "^10.12.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
