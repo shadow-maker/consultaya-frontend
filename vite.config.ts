@@ -40,7 +40,18 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), mswWorkerSoloDev()],
-    server: { port: 5173, strictPort: true, proxy },
+    server: {
+      port: 5173,
+      strictPort: true,
+      proxy,
+      // Transforma las pantallas al arrancar: la primera visita (p. ej. el primer e2e) no paga la compilación en frío.
+      warmup: { clientFiles: ['./src/main.tsx', './src/App.tsx', './src/Rutas.tsx', './src/pages/*.tsx'] },
+    },
+    // Dependencias declaradas de antemano: así Vite las optimiza en el arranque y nunca re-optimiza (con
+    // recarga completa de la página) cuando una pantalla las descubre tarde, p. ej. al cambiar de ruta.
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-dom/client', 'react/jsx-runtime', 'react/jsx-dev-runtime', 'react-router', '@tanstack/react-query', 'react-markdown', 'sql.js'],
+    },
     preview: { port: 5173, strictPort: true },
     test: {
       environment: 'jsdom',
