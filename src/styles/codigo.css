@@ -21,6 +21,9 @@ table.data td.empty-row{text-align:center; padding:18px; color:var(--muted); whi
 .editor pre{color:var(--code-ink); overflow:hidden; pointer-events:none; user-select:none; -webkit-user-select:none}
 .editor textarea{color:transparent; background:transparent; caret-color:#fff; resize:none; outline:none; overflow:auto}
 .editor textarea::selection{background:rgba(127,214,194,.35); color:transparent}
+/* La capa de resaltado usa <pre><code>: el estilo global de `code` (fuente a .88em, padding, fondo gris) no debe aplicarse aquí,
+   o cada línea queda con fondo y el texto deja de coincidir con el caret del textarea. Ambas capas comparten métricas. */
+.editor pre code{display:inline; margin:0; padding:0; border:0; border-radius:0; background:none; font:inherit; letter-spacing:inherit; line-height:inherit; tab-size:inherit; white-space:inherit; color:inherit}
 .editor-head{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap}
 .kbd{font:11px var(--mono); border:1px solid var(--line-2); border-bottom-width:2px; border-radius:5px; padding:1px 5px; color:var(--muted); background:var(--surface)}
 .toolbar{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:12px 0 16px}
